@@ -1,0 +1,85 @@
+{% extends "qmss/base.html" %}
+
+{% block content %}
+
+
+<style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  
+    h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+  
+    table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  table, th, td {
+    border: 1px solid white;
+    border-spacing: 0;
+  }
+  
+  
+    .btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.2s ease-in-out;
+    }
+  
+    .btn:hover {
+      background-color: #0062cc;
+    }
+  </style>
+  
+  <div class="container">
+    <h2>My Uploads</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Tag recipient</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for upload in uploads %}
+          <tr>
+            <td>{{ upload.subject }}</td>
+            <td><a href="/taguser/{{ upload.id }}/"><button class="btn btn-primary">Add</button></a></td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2">You haven't uploaded anything yet</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

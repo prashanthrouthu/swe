@@ -1,0 +1,55 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-heading {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 50px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #080710;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(8,7,16,0.6);
+    transition: all 0.3s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(8,7,16,0.4);
+  }
+</style>
+
+<div class="container">
+    <h2 class="page-heading">Manage Students</h2>
+    <div class="button-container">
+        <a href= "/totalStudents" class="button">All Students</a> <br>
+        <a href="/waitingStudents" class="button">Approve Students</a> <br>
+        <a href="/createStudent" class="button">Add New Student</a> <br> 
+    </div>
+  </div>
+
+
+{% endblock content%}
+

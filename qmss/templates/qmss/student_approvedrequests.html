@@ -1,0 +1,62 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+
+<style>
+    .approve-table {
+        width: 75%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+    }
+
+    .approve-table th,
+    .approve-table td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    .approve-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .approve-table td a {
+        text-decoration: none;
+        color: #333;
+    }
+      
+      a {
+        text-decoration: none;
+      }
+      .centre {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+  }
+</style>
+
+
+<p class="centre">Approved Requests</p>
+    
+<table class="approve-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    {% for object in pen%}
+    <tr>
+        <td><a href="{{ object.shared_object.pdf_file.url }}">{{object.shared_object.subject}}</a></td>
+        
+    </tr>
+    {%empty%}
+    <tr>
+        <td colspan="3">No Requests haven been approved yet</td>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock content %}
+

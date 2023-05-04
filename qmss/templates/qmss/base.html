@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body {
+    background: linear-gradient(135deg, #006699, #66ccff);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  }
+
+  .header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .header a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .header a:hover {
+    color: #006699;
+  }
+
+  .logout {
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .logout a {
+    color: white;
+    background-color: #006699;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .logout a:hover {
+    background-color: #004466;
+  }
+</style>
+
+<div class="header">
+  <h2><a href="{% url 'qmss:base' %}"><i class="fa fa-home"></i>&nbsp;Query Management System IITH</a></h2>
+  {% if user.is_authenticated %}
+  <div class="logout">
+    <a href="{%url 'qmss:logout'%}">Logout</a>
+  </div>
+  {% endif %}
+</div>
+
+{% block content %}
+{% endblock content %}

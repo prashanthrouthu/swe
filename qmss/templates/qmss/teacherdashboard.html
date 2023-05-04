@@ -1,0 +1,99 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+<style>
+    .card-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    a {
+        font-weight: bold;
+        text-decoration:none;    
+    }
+    i{
+        text-align: center;
+    }
+    .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+        margin: 40px;
+        width: 300px;
+        height: 220px;
+        overflow: hidden;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .card-header {
+        background-color: #9966ff;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 10px;
+        text-align: center;
+        text-decoration:none;
+    }
+    
+    .card-body {
+        font-size: 1rem;
+        padding: 10px;
+        text-align: center;
+        text-decoration:none;
+    }
+    .centre {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+}
+</style>
+<h1 class="centre">Hello {{request.user.first_name}}</h1>
+
+
+<div class="card-container">
+    <div class="card">
+        <a href="teacherapprovedrequests">
+            <div class="card-header">
+                Approved Requests
+            </div>
+            <div class="centre">
+                <i class="fa fa-check-circle fa-2x"></i>
+            </div>
+            <div class="card-body">
+                View all approved requests
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="teacherpendingrequests">
+            <div class="card-header">
+                Pending Requests
+            </div>
+            <div class="centre">
+                <i class="fa fa-clock-o fa-2x"></i>
+            </div>
+            <div class="card-body">
+                View all pending requests
+            </div>
+        </a>
+    </div>
+    <div class="card">
+        <a href="teacherrejectedrequests">
+            <div class="card-header">
+                Rejected Requests
+            </div>
+            <div class="centre">
+                <i class="fa fa-times-circle fa-2x"></i>
+            </div>
+            <div class="card-body">
+                View all rejected requests
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock content%}

@@ -1,0 +1,99 @@
+
+
+{% extends "qmss/base.html" %}
+{% block content %}
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Approve</th>
+        <th>Reject</th>
+      </tr>
+    </thead>
+    {% for object in teachers%}
+    <tr>
+      <td>{{ object.get_name }}</td>
+      <td>
+        <a class="btn btn-success btn-xs" href='/approveTeacher/{{ object.id }}/'><i class="fa fa-check fa-1.5x"></i> Approve</a>
+      </td>
+      <td>
+        <a class="btn btn-danger btn-xs" href='/rejectTeacher/{{ object.id }}/'><i class="fa fa-trash fa-1.5x"></i> Reject</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3">No Teachers have been added yet.</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    line-height: 1.42857143;
+    text-align: center;
+    border-top: 1px solid #ddd;
+  }
+
+  .table th {
+    font-weight: bold;
+    font-size: 25;
+  }
+  .table td {
+    
+    font-size: 20;
+  }
+  
+  .btn-xs {
+    padding: 9px 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+
+  .btn-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+  }
+
+  .btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+  }
+
+  .fa {
+    margin-right: 5px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 10px;
+    }
+
+    .table {
+      font-size: 14px;
+    }
+
+    .btn-xs {
+      font-size: 10px;
+    }
+  }
+</style>
+{% endblock content %}

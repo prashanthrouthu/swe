@@ -1,0 +1,85 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+
+<style>
+    .teachers-table {
+        width: 75%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+    }
+
+    .teachers-table th,
+    .teachers-table td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    .teachers-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .teachers-table td a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .btn {
+        background-color: #3498db;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background-color: #99ffcc;
+      }
+      .btn-primary:hover {
+        background-color: #99ff99;
+      }
+      .btn-danger {
+        background-color: #e74c3c;
+      }
+      .btn-danger:hover {
+        background-color: #c0392b;
+      }
+      /* Remove underline from links */
+      a {
+        text-decoration: none;
+      }
+
+</style>
+
+<h3> Total number of teachers = {{teacher_count}}</h3>
+<table class="teachers-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    {% for object in teachers%}
+    <tr>
+        <td class="center-align">{{object.get_name}}</td>
+        <td><a class="btn btn-primary btn-xs" href= "/updateTeacher/{{ object.id }}/" ><span class="glyphicon glyphicon-ok"></span>update</a></td>
+        <td><a class="btn btn-danger btn-xs" href= "/deleteTeacher/{{ object.id }}/"><span class="glyphicon glyphicon-trash"></span>delete</a></td>
+    </tr>
+    {%empty%}
+    <tr>
+        <td colspan="3">No Teachers haven been added yet</td>
+    </tr>
+    {% endfor%}
+</table>
+
+
+
+
+{% endblock content %}

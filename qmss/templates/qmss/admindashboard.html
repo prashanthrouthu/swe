@@ -1,0 +1,89 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  h1 {
+    margin-top: 0;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 20px;
+  }
+  
+  a {
+    display: block;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      padding: 20px;
+    }
+  
+    h1 {
+      font-size: 28px;
+    }
+  
+    a {
+      padding: 10px;
+      font-size: 16px;
+    }
+  }
+  .centre {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+  }
+  </style>
+<h1 class="centre">Hello {{request.user.first_name}}</h1>
+<div class="container">
+  <div class="card">
+    <h1>Admin Panel</h1>
+    <ul>
+      <li><a href="/adminteacherview">Teacher</a></li>
+      <li><a href="/adminstudentview">Student</a></li>
+      <li><a href="/adminstaffview">Staff</a></li>
+    </ul>
+  </div>
+</div>
+
+{% endblock content %}

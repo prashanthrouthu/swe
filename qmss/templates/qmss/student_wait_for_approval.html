@@ -1,0 +1,34 @@
+
+
+{% extends "qmss/base.html" %}
+
+{% block content %}
+  <h1 class="center">Hello {{request.user.first_name}}</h1>
+  <p>Wait for the approval of admin</p>
+  <div class="centre">
+    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+  </div>
+  <style>
+    .center {
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      text-align: center;
+      color: #000000;
+    }
+    .centre {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+  text-transform: uppercase;
+    }
+  </style>
+
+  
+{% endblock %}

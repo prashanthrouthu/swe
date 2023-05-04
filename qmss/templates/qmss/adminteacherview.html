@@ -1,0 +1,55 @@
+{% extends "qmss/base.html" %}
+
+{% block content %}
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-heading {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 800px;
+    margin-top: 50px;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #080710;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(8,7,16,0.6);
+    transition: all 0.3s ease;
+  }
+
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 10px rgba(8,7,16,0.4);
+  }
+</style>
+
+<div class="container">
+  <h2 class="page-heading">Manage Teachers</h2>
+  <div class="button-container">
+    <a href="/totalTeachers" class="button">View All Teachers</a>
+    <a href="/waitingTeachers" class="button">Approve Teachers</a>
+    <a href="/createTeacher" class="button">Add New Teacher</a>
+  </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,84 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+
+<style>
+    .students-table {
+        width: 75%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        border: 2px solid #ccc;
+    }
+
+    .students-table th,
+    .students-table td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ccc;
+    }
+
+    .students-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .students-table td a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .btn {
+        background-color: #3498db;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .btn-primary {
+        background-color: #99ffcc;
+      }
+      .btn-primary:hover {
+        background-color: #99ff99;
+      }
+      .btn-danger {
+        background-color: #e74c3c;
+      }
+      .btn-danger:hover {
+        background-color: #c0392b;
+      }
+      
+      a {
+        text-decoration: none;
+      }
+
+</style>
+
+<h3> Total number of students = {{student_count}}</h3>
+<table class="students-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Roll Number</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    {% for object in students%}
+    <tr>
+        <td class="center-align">{{object.get_name}}</td>
+        <td class="center-align">{{object.roll_number}}</td>
+        <td><a class="btn btn-primary btn-xs" href= "/updateStudent/{{ object.id }}/" ><span class="glyphicon glyphicon-ok"></span>update</a></td>
+        <td><a class="btn btn-danger btn-xs" href= "/deleteStudent/{{ object.id }}/"><span class="glyphicon glyphicon-trash"></span>delete</a></td>
+    </tr>
+    {%empty%}
+    <tr>
+        <td colspan="3">No Students haven been added yet</td>
+    </tr>
+    {% endfor%}
+</table>
+
+{% endblock content %}

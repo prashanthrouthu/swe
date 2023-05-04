@@ -1,0 +1,58 @@
+{% extends "qmss/base.html" %}
+{% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h1>Pending Requests</h1>
+<table>
+    <thead>
+        <tr>
+            <th>PDF File</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for object in pen %}
+        <tr>
+            <td><a href="{{ object.shared_object.pdf_file.url }}">{{ object.shared_object.subject }}</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td>No Requests are pending.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

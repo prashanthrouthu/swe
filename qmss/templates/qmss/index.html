@@ -1,0 +1,142 @@
+{% extends "qmss/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  
+  
+/* Slideshow styles */
+.slideshow {
+  position: relative;
+  height: 635px;
+  margin-top: 30px;
+  background-size: contain;
+  background-color: #ccc;
+}
+
+.slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideshow img.active {
+  opacity: 1;
+}
+
+.slideshow img:first-child {
+  opacity: 1;
+}
+
+.slideshow .prev, .slideshow .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.slideshow .prev:hover, .slideshow .next:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+.slideshow .prev {
+  left: 10px;
+}
+
+.slideshow .next {
+  right: 10px;
+}
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+  .topnav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  }
+  
+  .topnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease-out;
+  }
+  
+  .topnav a:hover {
+    color: #333;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+  
+  .topnav i {
+    margin-right: 5px;
+    font-size: 20px;
+  }
+  
+  
+  
+
+  @media screen and (max-width: 600px) {
+    .topnav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .topnav a {
+      padding: 10px 16px;
+      font-size: 16px;
+    }
+  }
+  
+
+</style>
+<p>
+    <div class="topnav">
+    <a href= "/studentclick"><i class="fa fa-user"></i> Student</a>
+    <a href="/teacherclick"><i class="fa fa-user"></i> Faculty</a>
+    <a href="/adminclick"> <i class="fa fa-user"></i> Admin </a>
+    <a href="/staffclick"> <i class="fa fa-user"></i> Staff </a>
+    </div>
+</p>
+
+<div class="slideshow">
+  <img class="active" src="{% static '/w1.jpg' %}" alt="Slide 1">
+  <img src="{% static '/faculty.jpg' %}" alt="Slide 2">
+  <img src="{% static '/s1.jpg' %}" alt="slide 3">
+</div>
+<script>
+  setInterval(function() {
+    var currentSlide = document.querySelector('.slideshow img.active');
+    currentSlide.classList.remove('active');
+    if (currentSlide.nextElementSibling) {
+      currentSlide.nextElementSibling.classList.add('active');
+    } else {
+      currentSlide.parentElement.firstElementChild.classList.add('active');
+    }
+  }, 4000);
+</script>
+{% endblock content%}

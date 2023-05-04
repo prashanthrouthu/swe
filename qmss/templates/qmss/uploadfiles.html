@@ -1,0 +1,61 @@
+
+{% extends 'qmss/base.html' %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Upload PDF</h2>
+      <form method="post" enctype="multipart/form-data" action="/uploadpdf">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>
+    </div>
+  </div>
+  
+  <style>
+    .card {
+      border: none;
+      box-shadow: 0 0 40px rgba(8,7,16,0.6);
+      background-color: rgba(167,75,233,0.25);
+      border-radius: 10px;
+      margin: 30px auto;
+      max-width: 600px;
+      padding: 30px;
+    }
+
+    .card-title {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      font-size:20px
+    }
+
+    label {
+      margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 20px;
+        
+    }
+
+    button {
+    margin-top: 50px;
+    width: 30%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 12px 0;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center
+  }
+  </style>
+{% endblock content %}
+
